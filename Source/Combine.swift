@@ -159,7 +159,7 @@ extension DataRequest {
     /// - Returns:               The `DataResponsePublisher`.
     @available(macOS 10.15, iOS 13, watchOS 6, tvOS 13, *)
     public func publishData(queue: DispatchQueue = .main,
-                            preprocessor: DataPreprocessor = DataResponseSerializer.defaultDataPreprocessor,
+                            preprocessor: some DataPreprocessor = DataResponseSerializer.defaultDataPreprocessor,
                             emptyResponseCodes: Set<Int> = DataResponseSerializer.defaultEmptyResponseCodes,
                             emptyRequestMethods: Set<HTTPMethod> = DataResponseSerializer.defaultEmptyRequestMethods) -> DataResponsePublisher<Data> {
         publishResponse(using: DataResponseSerializer(dataPreprocessor: preprocessor,
